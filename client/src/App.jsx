@@ -30,16 +30,19 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://supporthub-aau2.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
         },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+      );
 
       const data = await response.json();
 
@@ -66,17 +69,20 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://supporthub-aau2.onrender.com/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
         },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-        }),
-      });
+      );
 
       const data = await response.json();
 
@@ -104,11 +110,14 @@ function App() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/profile", {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        "https://supporthub-aau2.onrender.com/api/users/profile",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       const data = await response.json();
 
@@ -130,11 +139,14 @@ function App() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:5000/api/tickets", {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        "https://supporthub-aau2.onrender.com/api/tickets",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       const data = await response.json();
 
@@ -156,11 +168,14 @@ function App() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:5000/api/admin/tickets", {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        "https://supporthub-aau2.onrender.com/api/admin/tickets",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       const data = await response.json();
 
@@ -183,7 +198,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/tickets/${ticketId}/status`,
+        `https://supporthub-aau2.onrender.com/api/admin/tickets/${ticketId}/status`,
         {
           method: "PUT",
           headers: {
@@ -270,7 +285,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tickets/${ticketId}`,
+        `https://supporthub-aau2.onrender.com/api/tickets/${ticketId}`,
         {
           method: "PUT",
           headers: {
@@ -316,7 +331,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tickets/${ticketId}`,
+        `https://supporthub-aau2.onrender.com/api/tickets/${ticketId}`,
         {
           method: "DELETE",
           headers: {
