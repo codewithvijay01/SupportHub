@@ -712,6 +712,7 @@ function App() {
                         padding: "8px 14px",
                         borderRadius: "6px",
                         cursor: "pointer",
+                        marginTop: "8px",
                         marginBottom: "15px",
                       }}
                     >
