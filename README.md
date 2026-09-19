@@ -1,6 +1,12 @@
 # 🎫 SupportHub
 
-**SupportHub** is a full-stack customer support ticket management system where users can create, manage, and track support tickets, while administrators can view all tickets and update their status.
+SupportHub is a full-stack customer support ticket management system where users can create, manage, and track support tickets, while administrators can monitor all tickets and update their status.
+
+## 🌐 Live Demo
+
+**Frontend:** https://supporthub-1.onrender.com
+
+**Backend API:** https://supporthub-aau2.onrender.com
 
 ## 🚀 Features
 
@@ -14,7 +20,7 @@
 - Edit ticket title, description, and priority
 - Delete tickets
 - Track ticket status
-- Priority badges for tickets
+- Priority levels: Low, Medium, High
 
 ### 🛡️ Admin Features
 
@@ -43,10 +49,11 @@
 
 - MongoDB
 - Mongoose
+- MongoDB Atlas
 
 ### Authentication & Security
 
-- JWT (JSON Web Token)
+- JSON Web Token (JWT)
 - bcryptjs
 - Protected routes
 - Role-based authorization
@@ -57,7 +64,7 @@
 - GitHub
 - VS Code
 - Postman
-- MongoDB Atlas
+- Render
 
 ## 📁 Project Structure
 
@@ -72,7 +79,7 @@ SupportHub/
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── package.json
-│   └── README.md
+│   └── vite.config.js
 │
 └── server/
     ├── src/
@@ -88,6 +95,7 @@ SupportHub/
     │   ├── adminMiddleware.js
     │   ├── database.js
     │   └── index.js
+    │
     ├── package.json
     └── .gitignore
 ```
@@ -96,14 +104,15 @@ SupportHub/
 
 SupportHub uses JWT authentication to protect private routes.
 
-- Users receive a JWT token after login.
+- Users receive a JWT token after successful login.
 - Protected APIs require a valid authentication token.
 - Admin routes require an authenticated user with the `admin` role.
 - Passwords are securely hashed using bcryptjs.
+- Sensitive environment variables are stored in `.env`.
 
 ## 🎯 Ticket Workflow
 
-Tickets can have the following statuses:
+Tickets follow a simple support workflow:
 
 ```text
 Open → In Progress → Resolved → Closed
@@ -115,58 +124,6 @@ Tickets also support three priority levels:
 Low
 Medium
 High
-```
-
-## ⚙️ Installation & Setup
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/codewithvijay01/SupportHub.git
-cd SupportHub
-```
-
-### 2. Setup Backend
-
-```bash
-cd server
-npm install
-```
-
-Create a `.env` file inside the `server` folder:
-
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-```
-
-Then start the backend:
-
-```bash
-npm run dev
-```
-
-Backend will run on:
-
-```text
-http://localhost:5000
-```
-
-### 3. Setup Frontend
-
-Open another terminal:
-
-```bash
-cd SupportHub/client
-npm install
-npm run dev
-```
-
-Frontend will run on:
-
-```text
-http://localhost:5173
 ```
 
 ## 📌 API Endpoints
@@ -202,9 +159,80 @@ GET /api/admin/tickets
 PUT /api/admin/tickets/:id/status
 ```
 
+## ⚙️ Local Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/codewithvijay01/SupportHub.git
+
+cd SupportHub
+```
+
+### 2. Setup Backend
+
+```bash
+cd server
+npm install
+```
+
+Create a `.env` file inside the `server` folder:
+
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+Start the backend:
+
+```bash
+npm run dev
+```
+
+Backend will run locally on:
+
+```text
+http://localhost:5000
+```
+
+### 3. Setup Frontend
+
+Open another terminal:
+
+```bash
+cd SupportHub/client
+npm install
+npm run dev
+```
+
+Frontend will run locally on:
+
+```text
+http://localhost:5173
+```
+
 ## 🔒 Environment Variables
 
-Sensitive information such as database credentials and JWT secrets should be stored in `.env` and should **not** be committed to GitHub.
+The following environment variables are required for the backend:
+
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+**Never commit `.env` files or sensitive credentials to GitHub.**
+
+## ☁️ Deployment
+
+SupportHub is deployed using:
+
+- **Frontend:** Render Static Site
+- **Backend:** Render Web Service
+- **Database:** MongoDB Atlas
+
+The production application is connected to the deployed backend API and MongoDB database.
 
 ## 🚧 Future Improvements
 
@@ -215,7 +243,8 @@ Sensitive information such as database credentials and JWT secrets should be sto
 - Admin analytics dashboard
 - Ticket comments
 - File attachments
-- Deployment with production environment variables
+- Real-time ticket updates
+- Improved notification system
 
 ## 👨‍💻 Developer
 
@@ -224,6 +253,8 @@ Sensitive information such as database credentials and JWT secrets should be sto
 B.Tech Computer Science Engineering
 Parul University
 
----
+## ⭐ Support
 
-⭐ If you find this project useful, feel free to explore the repository.
+If you find this project useful, feel free to explore the repository and give it a ⭐ on GitHub.
+
+**GitHub:** https://github.com/codewithvijay01/SupportHub
