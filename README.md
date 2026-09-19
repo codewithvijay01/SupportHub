@@ -31,6 +31,20 @@ SupportHub is a full-stack customer support ticket management system where users
 - Update ticket status
 - Manage ticket workflow
 
+## 📸 Screenshots
+
+### 🔐 Login Page
+
+![Login Page](client/public/screenshots/login.png)
+
+### 👤 User Dashboard
+
+![User Dashboard](client/public/screenshots/dashboard.png)
+
+### 🛡️ Admin Dashboard
+
+![Admin Dashboard](client/public/screenshots/admin-dashboard.png)
+
 ## 🛠️ Tech Stack
 
 ### Frontend
