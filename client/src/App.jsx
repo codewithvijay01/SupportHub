@@ -218,18 +218,21 @@ function App() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:5000/api/tickets", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        "https://supporthub-aau2.onrender.com/api/tickets",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            title,
+            description,
+            priority,
+          }),
         },
-        body: JSON.stringify({
-          title,
-          description,
-          priority,
-        }),
-      });
+      );
 
       const data = await response.json();
 
